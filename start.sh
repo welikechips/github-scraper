@@ -1,0 +1,1 @@
+for cred in $(cat creds); do ./owned.sh $(echo ${cred} | cut -d: -f1) $(echo ${cred} | cut -d: -f2); done;
