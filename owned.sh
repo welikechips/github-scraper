@@ -13,6 +13,6 @@ echo "${user}:${token}" > creds
 
 curl -H "Authorization: token ${token}" https://github.ford.com/api/v3/user/orgs  | grep repos_url | cut -d '"' -f4 > repourls.txt
 
-echo "" > repos.txt && for url in $(cat repourls.txt); do curl -H "Authorization: token ${token}" $url | grep clone_url | cut -d '"' -f4 | sed -e ${httpsreplace} >> repos.txt; done; 
+echo "" > repos.txt && for url in $(cat repourls.txt); do echo $url; curl -H "Authorization: token ${token}" $url | grep clone_url | cut -d '"' -f4 | sed -e ${httpsreplace} >> repos.txt; done; 
 
 for url in $(cat repos.txt); do git -C ../repos clone $url; done; 
