@@ -1,12 +1,12 @@
 
 user=$1
 token=$2
-$urlOrgs=$3
+urlOrgs=$3
 
-mkdir -p ../users/$1/getem
-mkdir -p ../users/$1/repos
+mkdir -p users/$1/getem
+mkdir -p users/$1/repos
 
-cd ../users/$1/getem
+cd users/$1/getem
 
 httpsreplace="s/https:\/\//https:\/\/${user}:${token}@/g"
 
